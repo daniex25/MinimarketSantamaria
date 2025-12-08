@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MinimarketSantamaria")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e93604ed3d302525732fe44f01799e386578d783")]
 [assembly: System.Reflection.AssemblyProductAttribute("MinimarketSantamaria")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MinimarketSantamaria")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

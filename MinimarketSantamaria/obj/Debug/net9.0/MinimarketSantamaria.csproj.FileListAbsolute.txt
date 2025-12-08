@@ -370,3 +370,4 @@ C:\TDS-II\MinimarketSantamaria\MinimarketSantamaria\obj\Debug\net9.0\compressed\
 C:\TDS-II\MinimarketSantamaria\MinimarketSantamaria\obj\Debug\net9.0\compressed\6t1h0dc4k1-jmgwmyfb49.gz
 C:\TDS-II\MinimarketSantamaria\MinimarketSantamaria\obj\Debug\net9.0\compressed\hw467hqrwx-lvs26kliyv.gz
 C:\TDS-II\MinimarketSantamaria\MinimarketSantamaria\obj\Debug\net9.0\compressed\09ikb5lnox-z9jnjllrhx.gz
+C:\TDS-II\MinimarketSantamaria\MinimarketSantamaria\obj\Debug\net9.0\MinimarketSantamaria.sourcelink.json

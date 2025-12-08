@@ -3,9 +3,11 @@ using MinimarketSantamaria.Areas.Identity.Data.Interface;
 using MinimarketSantamaria.Models.Entidades;
 using Microsoft.AspNetCore.Mvc;
 using X.PagedList.Extensions;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MinimarketSantamaria.Controllers
 {
+    [Authorize]
     public class VentasController : Controller
     {
         private readonly ProductoIDA productoDA;
