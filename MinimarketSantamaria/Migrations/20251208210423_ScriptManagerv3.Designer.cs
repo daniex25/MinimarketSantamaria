@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MinimarketSantamaria.Data;
 
@@ -11,9 +12,11 @@ using MinimarketSantamaria.Data;
 namespace MinimarketSantamaria.Migrations
 {
     [DbContext(typeof(MinimarketSantamariaContext))]
-    partial class MinimarketSantamariaContextModelSnapshot : ModelSnapshot
+    [Migration("20251208210423_ScriptManagerv3")]
+    partial class ScriptManagerv3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
