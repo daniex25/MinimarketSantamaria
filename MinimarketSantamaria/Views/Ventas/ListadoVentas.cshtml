@@ -1,0 +1,69 @@
+﻿@model IEnumerable<MinimarketSantamaria.Models.Entidades.Ventas>
+
+@using X.PagedList.Mvc.Core
+@using X.PagedList
+
+<div class="card card-primary card-outline mb-4">
+    <div class="card-header">
+        <i class="bi bi-wrench"></i>
+        Listado de Ventas - DB SQL
+    </div>
+    <div class="card-header">
+        <a class="btn btn-success btn-sm text-white" role="button" asp-action="Create">
+            <i class="bi bi-plus"></i>
+        </a>
+    </div>
+    <br />
+    <table class="table table-hover table-bordered table-sm">
+        <thead>
+            <tr class="table-info">
+                <th><center><strong>ID Venta</strong></center></th>
+                <th><center><strong>ID Sucursal</strong></center></th>
+                <th><center><strong>ID Producto</strong></center></th>
+                <th><center><strong>Nombre Producto</strong></center></th>
+                <th><center><strong>Unidad de Medida</strong></center></th>
+                <th><center><strong>Registro</strong></center></th>
+                <th><center><strong>Opciones</strong></center></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td align="center">@item.IdVentas</td>
+                    <td align="center">@item.Sucursal.IdSucursal</td>
+                    <td align="center">@item.Producto.IdProducto</td>
+                    <td align="center">@item.Producto.nombreProducto</td>
+                    <td align="center">@item.UnidadMedida.Nombre</td>
+                    <td align="center">@item.Registro</td>
+                    <td align="center">
+                        <a class="btn btn-primary btn-sm text-white" role="button"
+                           asp-route-id="@item.IdVentas" asp-action="Edit">
+                            <i class="bi bi-pencil-square"></i>
+                        </a>
+                        <a class="btn btn-warning btn-sm text-white" role="button"
+                           asp-route-id="@item.IdVentas" asp-action="Details">
+                            <i class="bi bi-eye-fill"></i>
+                        </a>
+                        <a class="btn btn-danger btn-sm text-white" role="button"
+                           asp-route-id="@item.IdVentas" asp-action="Delete">
+                            <i class="bi bi-trash3-fill text-white"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table> <div class="card-header">
+        <h3 class="card-title">
+            @Html.PagedListPager((IPagedList)Model,
+            page => Url.Action("ListadoVentas",
+            "Ventas", new { page = page }), PagedListRenderOptions.MinimalWithItemCountText)
+        </h3>
+    </div>
+    <div class="card-footer">
+        Empresa de inventarios S.A.
+        <a href="" class="link-primary">
+            Derechos Reservados "Empresa de Inventarios S.A."
+        </a>
+    </div>
+</div>
