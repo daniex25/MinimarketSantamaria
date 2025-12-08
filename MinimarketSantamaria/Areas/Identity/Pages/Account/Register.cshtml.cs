@@ -97,6 +97,36 @@ namespace MinimarketSantamaria.Areas.Identity.Pages.Account
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
+            //------------------------------
+            //Roles:
+            [Display(Name = "Nombres")]
+            [Required]
+            [MaxLength(60)]
+            public string Nombres { get; set; }
+
+            [Display(Name = "Apellidos")]
+            [Required]
+            [MaxLength(60)]
+            public string Apellidos { get; set; }
+
+            [Display(Name = "DNI")]
+            [Required]
+            [MaxLength(60)]
+            public string Dni { get; set; }
+
+            [Display(Name = "Edad")]
+            [Required]
+            [MaxLength(2)]
+            public string Edad { get; set; }
+
+            [Display(Name = "Direccion")]
+            [Required]
+            [MaxLength(120)]
+            public string Direccion { get; set; }
+
+            [Display(Name ="Fecha de Nacimiento")]
+            [Required]
+            public DateTime FechaNacimiento { get; set; }
         }
 
 

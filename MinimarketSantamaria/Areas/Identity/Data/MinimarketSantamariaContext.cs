@@ -1,10 +1,11 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using static MinimarketSantamaria.Data.MinimarketSantamariaContext;
 
 namespace MinimarketSantamaria.Data;
 
-public class MinimarketSantamariaContext : IdentityDbContext
+public class MinimarketSantamariaContext : IdentityDbContext<Usuario>
 {
     public class Usuario : IdentityUser
     {
@@ -16,6 +17,33 @@ public class MinimarketSantamariaContext : IdentityDbContext
 
         public DateTime FechaNacimiento { get; set; }
     }
+
+    //Para roles:
+    protected override void OnModelCreating(ModelBuilder builder)
+    {
+        base.OnModelCreating(builder);
+        builder.Entity<Usuario>(entityTypeBuilder =>
+        {
+            entityTypeBuilder.ToTable("AspNetUsers");
+            entityTypeBuilder.Property(u => u.UserName)
+            .HasMaxLength(100)
+            .HasDefaultValue(0);
+            entityTypeBuilder.Property(u => u.Nombres)
+            .HasMaxLength(60);
+            entityTypeBuilder.Property(u => u.Apellidos)
+            .HasMaxLength(60);
+            entityTypeBuilder.Property(u => u.Dni)
+            .HasMaxLength(8);
+            entityTypeBuilder.Property(u => u.Edad)
+            .HasMaxLength(2);
+            //psdt: si se hace cont Int , no tiene HasMaxLength
+            entityTypeBuilder.Property(u => u.Direccion)
+            .HasMaxLength(120);
+            entityTypeBuilder.Property(u => u.FechaNacimiento)
+            .HasColumnType("date"); //para fechas
+        });
+
+    }   
     public MinimarketSantamariaContext(DbContextOptions<MinimarketSantamariaContext> options)
         : base(options)
     {

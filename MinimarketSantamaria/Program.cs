@@ -3,12 +3,37 @@ using Microsoft.EntityFrameworkCore;
 using MinimarketSantamaria.Areas.Identity.Data.AccesoDatos;
 using MinimarketSantamaria.Areas.Identity.Data.Interface;
 using MinimarketSantamaria.Data;
+using static MinimarketSantamaria.Data.MinimarketSantamariaContext;
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("MinimarketSantamariaContextConnection") ?? throw new InvalidOperationException("Connection string 'MinimarketSantamariaContextConnection' not found.");;
 
 builder.Services.AddDbContext<MinimarketSantamariaContext>(options => options.UseSqlServer(connectionString));
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<MinimarketSantamariaContext>();
+//Roles 
+builder.Services.AddDefaultIdentity<Usuario>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddRoles<IdentityRole>() //se agrega esto
+    .AddEntityFrameworkStores<MinimarketSantamariaContext>();
+
+builder.Services.AddAuthorization(
+    options => options.AddPolicy(
+        "GerenteSantamaria",
+        policy => policy.RequireRole("Gerente")));
+builder.Services.AddAuthorization(
+    options => options.AddPolicy(
+        "AsistenteSantamaria",
+        policy => policy.RequireRole("Asistente")));
+builder.Services.AddAuthorization(
+    options => options.AddPolicy(
+        "AnonimoSantamaria",
+        policy => policy.RequireRole("Anonimo")));
+builder.Services.AddAuthorization(
+    options => options.AddPolicy(
+        "EmpleadoSantamaria",
+        policy => policy.RequireRole("Empleado")));
+builder.Services.AddAuthorization(
+    options => options.AddPolicy(
+        "GerenteAsistenteSantamaria",
+        policy => policy.RequireRole("Gerente", "Asistente")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
