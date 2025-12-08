@@ -1,4 +1,11 @@
-﻿<!doctype html>
+﻿<!--Roles 2 (LoginPartial)-->
+@using Microsoft.AspNetCore.Identity
+@using static MinimarketSantamaria.Data.MinimarketSantamariaContext
+@inject SignInManager<Usuario> SignInManager 
+@inject UserManager<Usuario> UserManager
+@inject IAuthorizationService AuthorizationService
+
+<!doctype html>
 <html lang="en">
 <!--begin::Head-->
 <head>

@@ -1,4 +1,7 @@
-﻿@model IEnumerable<MinimarketSantamaria.Models.Entidades.Ventas>
+﻿<!--Login 2 (LoginPartial)-->
+@inject IAuthorizationService AuthorizationService
+
+@model IEnumerable<MinimarketSantamaria.Models.Entidades.Ventas>
 
 @using X.PagedList.Mvc.Core
 @using X.PagedList
@@ -8,10 +11,19 @@
         <i class="bi bi-wrench"></i>
         Listado de Ventas - DB SQL
     </div>
+    <!--Roles 2-->
     <div class="card-header">
-        <a class="btn btn-success btn-sm text-white" role="button" asp-action="Create">
-            <i class="bi bi-plus"></i>
-        </a>
+        <div class="row">
+            <div class="col-3">
+                @if ((await AuthorizationService.AuthorizeAsync(User, "GerenteAsistenteSantamaria")).Succeeded)
+                {
+                    <a class="btn btn-success btn-sm text-white" role="button" asp-action="Create">
+                        <i class="bi bi-plus"></i>
+                    </a>
+                }
+            </div>
+        </div>
+        
     </div>
     <br />
     <table class="table table-hover table-bordered table-sm">
@@ -37,18 +49,31 @@
                     <td align="center">@item.UnidadMedida.Nombre</td>
                     <td align="center">@item.Registro</td>
                     <td align="center">
-                        <a class="btn btn-primary btn-sm text-white" role="button"
-                           asp-route-id="@item.IdVentas" asp-action="Edit">
-                            <i class="bi bi-pencil-square"></i>
-                        </a>
-                        <a class="btn btn-warning btn-sm text-white" role="button"
-                           asp-route-id="@item.IdVentas" asp-action="Details">
-                            <i class="bi bi-eye-fill"></i>
-                        </a>
-                        <a class="btn btn-danger btn-sm text-white" role="button"
-                           asp-route-id="@item.IdVentas" asp-action="Delete">
-                            <i class="bi bi-trash3-fill text-white"></i>
-                        </a>
+                        <!--Roles 2-->
+                        @if ((await AuthorizationService.AuthorizeAsync(User, "GerenteAsistenteSantamaria")).Succeeded)
+                        {
+                            <a class="btn btn-primary btn-sm text-white" role="button"
+                               asp-route-id="@item.IdVentas" asp-action="Edit">
+                                <i class="bi bi-pencil-square"></i>
+                            </a>
+                        }
+
+                        @if ((await AuthorizationService.AuthorizeAsync(User, "GerenteAsistenteSantamaria", "EmpleadoSantamaria")).Succeeded)
+                        {
+                            <a class="btn btn-warning btn-sm text-white" role="button"
+                               asp-route-id="@item.IdVentas" asp-action="Details">
+                                <i class="bi bi-eye-fill"></i>
+                            </a>
+                        }
+
+                        @if ((await AuthorizationService.AuthorizeAsync(User, "GerenteSantamaria")).Succeeded)
+                        {
+                            <a class="btn btn-danger btn-sm text-white" role="button"
+                               asp-route-id="@item.IdVentas" asp-action="Delete">
+                                <i class="bi bi-trash3-fill text-white"></i>
+                            </a>
+                        }
+                        
                     </td>
                 </tr>
             }
