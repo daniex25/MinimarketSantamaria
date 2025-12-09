@@ -383,3 +383,7 @@ C:\TDS-II\MinimarketSantamaria\MinimarketSantamaria\obj\Debug\net9.0\MinimarketS
 C:\TDS-II\MinimarketSantamaria\MinimarketSantamaria\obj\Debug\net9.0\en-US\MinimarketSantamaria.resources.dll
 C:\TDS-II\MinimarketSantamaria\MinimarketSantamaria\obj\Debug\net9.0\es-PE\MinimarketSantamaria.resources.dll
 C:\TDS-II\MinimarketSantamaria\MinimarketSantamaria\obj\Debug\net9.0\fr-FR\MinimarketSantamaria.resources.dll
+C:\TDS-II\MinimarketSantamaria\MinimarketSantamaria\bin\Debug\net9.0\Microsoft.OpenApi.dll
+C:\TDS-II\MinimarketSantamaria\MinimarketSantamaria\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\TDS-II\MinimarketSantamaria\MinimarketSantamaria\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\TDS-II\MinimarketSantamaria\MinimarketSantamaria\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll

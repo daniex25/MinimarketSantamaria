@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi;
 using MinimarketSantamaria.Areas.Identity.Data.AccesoDatos;
 using MinimarketSantamaria.Areas.Identity.Data.Interface;
 using MinimarketSantamaria.Data;
@@ -73,19 +74,42 @@ builder.Services.AddSingleton<SucursalIDA, SucursalDA>();
 builder.Services.AddSingleton<UnidadMedidaIDA, UnidadMedidaDA>();
 builder.Services.AddSingleton<VentasIDA, VentasDA>();
 
+//API
+builder.Services.AddControllers();
+
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Title = "Producto API",
+        Version = "v1",
+    });
+});
+
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
+
+
+// API
+if (app.Environment.IsDevelopment())
+{
+    app.UseMigrationsEndPoint();
+    app.UseSwagger();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Producto API v1");
+    });
+}
+else
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
 
-//Globalizacion
-var cultures = new List<CultureInfo>();
+    //Globalizacion
+    var cultures = new List<CultureInfo>();
 cultures.Add(new CultureInfo("en-US"));
 cultures.Add(new CultureInfo("es-PE"));
 cultures.Add(new CultureInfo("fr-FR"));
@@ -110,6 +134,9 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}")
     .WithStaticAssets();
+
+//API
+app.MapControllers();
 
 app.MapRazorPages()
    .WithStaticAssets();
