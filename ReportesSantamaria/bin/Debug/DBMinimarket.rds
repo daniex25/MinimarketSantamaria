@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="DBMinimarket">
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=DESKTOP-6C53PKU;Initial Catalog=MinimarketSantamaria</ConnectString>
+  </ConnectionProperties>
+  <DataSourceID>d583069e-ff48-4c42-8571-c19975af0a3d</DataSourceID>
+</RptDataSource>

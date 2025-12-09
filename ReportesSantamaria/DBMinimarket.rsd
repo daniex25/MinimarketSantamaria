@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSet Name="DataSet1">
+    <Query>
+      <DataSourceReference>DBMinimarket</DataSourceReference>
+      <CommandText>SELECT v.IdVentas,
+       s.NombreSucursal AS Sucursal,
+       p.NombreProducto AS Producto,
+       u.Nombre AS UnidadMedida,
+       v.Registro AS FechaVenta,
+       v.FechaModificacion
+FROM Ventas v
+INNER JOIN Sucursal s
+    ON v.IdSucursal = s.IdSucursal
+INNER JOIN Producto p
+    ON v.IdProducto = p.IdProducto
+INNER JOIN UnidadMedida u
+    ON v.IdUnidadMedida = u.IdUnidadMedida</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="IdVentas">
+        <DataField>IdVentas</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Sucursal">
+        <DataField>Sucursal</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Producto">
+        <DataField>Producto</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="UnidadMedida">
+        <DataField>UnidadMedida</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="FechaVenta">
+        <DataField>FechaVenta</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="FechaModificacion">
+        <DataField>FechaModificacion</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>
