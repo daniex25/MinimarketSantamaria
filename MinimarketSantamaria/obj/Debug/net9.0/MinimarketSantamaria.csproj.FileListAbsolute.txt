@@ -371,3 +371,15 @@ C:\TDS-II\MinimarketSantamaria\MinimarketSantamaria\obj\Debug\net9.0\compressed\
 C:\TDS-II\MinimarketSantamaria\MinimarketSantamaria\obj\Debug\net9.0\compressed\hw467hqrwx-lvs26kliyv.gz
 C:\TDS-II\MinimarketSantamaria\MinimarketSantamaria\obj\Debug\net9.0\compressed\09ikb5lnox-z9jnjllrhx.gz
 C:\TDS-II\MinimarketSantamaria\MinimarketSantamaria\obj\Debug\net9.0\MinimarketSantamaria.sourcelink.json
+C:\TDS-II\MinimarketSantamaria\MinimarketSantamaria\bin\Debug\net9.0\en-US\MinimarketSantamaria.resources.dll
+C:\TDS-II\MinimarketSantamaria\MinimarketSantamaria\bin\Debug\net9.0\es-PE\MinimarketSantamaria.resources.dll
+C:\TDS-II\MinimarketSantamaria\MinimarketSantamaria\bin\Debug\net9.0\fr-FR\MinimarketSantamaria.resources.dll
+C:\TDS-II\MinimarketSantamaria\MinimarketSantamaria\bin\Debug\net9.0\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
+C:\TDS-II\MinimarketSantamaria\MinimarketSantamaria\obj\Debug\net9.0\MinimarketSantamaria.Resource.Views.Ventas.ListadoVentas.resources
+C:\TDS-II\MinimarketSantamaria\MinimarketSantamaria\obj\Debug\net9.0\MinimarketSantamaria.Resource.Views.Ventas.ListadoVentas.en-US.resources
+C:\TDS-II\MinimarketSantamaria\MinimarketSantamaria\obj\Debug\net9.0\MinimarketSantamaria.Resource.Views.Ventas.ListadoVentas.es-PE.resources
+C:\TDS-II\MinimarketSantamaria\MinimarketSantamaria\obj\Debug\net9.0\MinimarketSantamaria.Resource.Views.Ventas.ListadoVentas.fr-FR.resources
+C:\TDS-II\MinimarketSantamaria\MinimarketSantamaria\obj\Debug\net9.0\MinimarketSantamaria.csproj.GenerateResource.cache
+C:\TDS-II\MinimarketSantamaria\MinimarketSantamaria\obj\Debug\net9.0\en-US\MinimarketSantamaria.resources.dll
+C:\TDS-II\MinimarketSantamaria\MinimarketSantamaria\obj\Debug\net9.0\es-PE\MinimarketSantamaria.resources.dll
+C:\TDS-II\MinimarketSantamaria\MinimarketSantamaria\obj\Debug\net9.0\fr-FR\MinimarketSantamaria.resources.dll

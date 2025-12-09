@@ -1,4 +1,3 @@
-wwwroot\favicon.ico
 wwwroot\assets\img\AdminLTEFullLogo.png
 wwwroot\assets\img\AdminLTELogo.png
 wwwroot\assets\img\avatar.png
@@ -41,6 +40,7 @@ wwwroot\css\adminlte.rtl.css
 wwwroot\css\adminlte.rtl.css.map
 wwwroot\css\adminlte.rtl.min.css
 wwwroot\css\adminlte.rtl.min.css.map
+wwwroot\favicon.ico
 wwwroot\js\adminlte.js
 wwwroot\js\adminlte.js.map
 wwwroot\js\adminlte.min.js

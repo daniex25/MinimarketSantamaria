@@ -1,6 +1,9 @@
 ﻿<!--Login 2 (LoginPartial)-->
 @inject IAuthorizationService AuthorizationService
 
+<!--Globalizacion-->
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
 @model IEnumerable<MinimarketSantamaria.Models.Entidades.Ventas>
 
 @using X.PagedList.Mvc.Core
@@ -22,6 +25,12 @@
                     </a>
                 }
             </div>
+            <div class="col-4">
+
+            </div>
+            <div class="col-5">
+                @await Component.InvokeAsync("Idioma")
+            </div>
         </div>
         
     </div>
@@ -29,13 +38,13 @@
     <table class="table table-hover table-bordered table-sm">
         <thead>
             <tr class="table-info">
-                <th><center><strong>ID Venta</strong></center></th>
-                <th><center><strong>ID Sucursal</strong></center></th>
-                <th><center><strong>ID Producto</strong></center></th>
-                <th><center><strong>Nombre Producto</strong></center></th>
-                <th><center><strong>Unidad de Medida</strong></center></th>
-                <th><center><strong>Registro</strong></center></th>
-                <th><center><strong>Opciones</strong></center></th>
+                <th><center><strong>@Localizer["KeyIdVentas"]</strong></center></th>
+                <th><center><strong>@Localizer["KeyIdSucursal"]</strong></center></th>
+                <th><center><strong>@Localizer["KeyIdProducto"]</strong></center></th>
+                <th><center><strong>@Localizer["KeyNombreProducto"]</strong></center></th>
+                <th><center><strong>@Localizer["KeyUnidadMedida"]</strong></center></th>
+                <th><center><strong>@Localizer["KeyRegistro"]</strong></center></th>
+                <th><center><strong>@Localizer["KeyOpciones"]</strong></center></th>
             </tr>
         </thead>
         <tbody>

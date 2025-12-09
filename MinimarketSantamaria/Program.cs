@@ -1,13 +1,42 @@
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
 using MinimarketSantamaria.Areas.Identity.Data.AccesoDatos;
 using MinimarketSantamaria.Areas.Identity.Data.Interface;
 using MinimarketSantamaria.Data;
+using System.Globalization;
 using static MinimarketSantamaria.Data.MinimarketSantamariaContext;
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("MinimarketSantamariaContextConnection") ?? throw new InvalidOperationException("Connection string 'MinimarketSantamariaContextConnection' not found.");;
 
+//Globalizacion
 builder.Services.AddDbContext<MinimarketSantamariaContext>(options => options.UseSqlServer(connectionString));
+builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
+builder.Services.AddLocalization(options =>
+{
+    options.ResourcesPath = "Resource";
+});
+
+builder.Services.AddMvc(options =>
+{
+    options.CacheProfiles.Add("Default", new CacheProfile
+    {
+        Duration = 6,
+        Location = ResponseCacheLocation.Any
+    });
+
+    options.CacheProfiles.Add("Never", new CacheProfile
+    {
+        Duration = 86,
+        Location = ResponseCacheLocation.None
+    });
+})
+.AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix);
+
+
 
 //Roles 
 builder.Services.AddDefaultIdentity<Usuario>(options => options.SignIn.RequireConfirmedAccount = true)
@@ -53,6 +82,22 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
+
+//Globalizacion
+var cultures = new List<CultureInfo>();
+cultures.Add(new CultureInfo("en-US"));
+cultures.Add(new CultureInfo("es-PE"));
+cultures.Add(new CultureInfo("fr-FR"));
+var requestLocations = new RequestLocalizationOptions
+{
+    SupportedCultures = cultures,
+    SupportedUICultures = cultures,
+    DefaultRequestCulture = new RequestCulture(culture: "en-US", uiCulture: "en-US")
+};
+app.UseRequestLocalization(requestLocations);
+
+
 
 app.UseHttpsRedirection();
 app.UseRouting();
